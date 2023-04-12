@@ -1,6 +1,5 @@
 import 'package:dio/dio.dart';
 import 'package:promina/view_model.dart/dio/end_points.dart';
-
 import '../local/CacheService.dart';
 
 class DioHelper {
@@ -24,7 +23,7 @@ class DioHelper {
     dio.options.headers = {
       'Content-Type': 'application/json',
       'Accept': 'application/json',
-      'Authorization': 'Bearer ${token}'
+      'Authorization': 'Bearer $token'
     };
     return await dio.post(
       url,
@@ -41,7 +40,7 @@ class DioHelper {
     dio.options.headers = {
       'Content-Type': 'application/json',
       'Accept': 'application/json',
-      'Authorization': 'Bearer ${token}'
+      'Authorization': 'Bearer $token'
     };
     return await dio.get(
       url,

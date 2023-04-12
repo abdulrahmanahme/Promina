@@ -1,6 +1,5 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:promina/components/components.dart';
 import 'package:promina/view/gellary_screen.dart';
@@ -9,6 +8,8 @@ import 'package:promina/view_model.dart/cubit/states.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
 class LoginScreen extends StatefulWidget {
+  const LoginScreen({super.key});
+
   @override
   State<LoginScreen> createState() => _LoginScreenState();
 }
@@ -25,16 +26,11 @@ class _LoginScreenState extends State<LoginScreen> {
         child: BlocConsumer<GellaryCubit, GellaryStatus>(
           listener: (context, state) {
             if (state is LoginSuccessState) {
-              // CacheHelper.setData(key:SharedKeys.token , value: '${state.userData!.data!.accessToken}');
-              print('ssssssssssssssssssssssssssssssssssssssssssssssss');
               navigateAndFinish(context, GellarryScreen());
-
-              // showToast(text: '${state.userData!.message}', state: ToastStates.SUCCESS);
             }
           },
           builder: (context, state) {
             var cubit = GellaryCubit.get(context);
-cubit.getProducts();
             return Container(
               decoration: const BoxDecoration(
                 image: DecorationImage(
